@@ -17,6 +17,7 @@ public class BaseTest {
     public LoginPage loginPage;
     public ProductsPage productsPage;
     public SignupPage signupPage;
+    public NavigationMenu navigationMenu;
 
     @BeforeClass
     public void setUp() {

@@ -1,12 +1,13 @@
 package Pages;
 
-import Base.BaseTest;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends BaseTest {
+import org.openqa.selenium.WebDriver;
+
+
+public class HomePage {
 
     WebDriver driver;
+
 
     public HomePage(WebDriver driver) {
         this.driver = driver;

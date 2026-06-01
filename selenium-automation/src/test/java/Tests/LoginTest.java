@@ -26,5 +26,6 @@ public class LoginTest extends BaseTest {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         signupPage = new SignupPage(driver);
+        navigationMenu= new NavigationMenu(driver);
     }
 }

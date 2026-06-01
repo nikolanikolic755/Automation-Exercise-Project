@@ -29,10 +29,23 @@ public class CartTest extends BaseTest {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         signupPage = new SignupPage(driver);
+        navigationMenu= new NavigationMenu(driver);
     }
 
     @Test
-    public void test1() {
+    public void test1() throws InterruptedException {
+        Thread.sleep(5000);
+        navigationMenu.clickProducts();
+        Thread.sleep(5000);
+        navigationMenu.clickHome();
+        Thread.sleep(5000);
+        navigationMenu.clickCart();
+        Thread.sleep(5000);
+        navigationMenu.clickLoginSignup();
+        Thread.sleep(5000);
+        navigationMenu.clickContactUs();
+
+
 
     }
 

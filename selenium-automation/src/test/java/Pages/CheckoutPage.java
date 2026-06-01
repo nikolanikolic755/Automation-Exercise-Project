@@ -1,10 +1,10 @@
 package Pages;
 
-import Base.BaseTest;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
-public class CheckoutPage extends BaseTest {
+import org.openqa.selenium.WebDriver;
+
+
+public class CheckoutPage  {
 
     WebDriver driver;
 
