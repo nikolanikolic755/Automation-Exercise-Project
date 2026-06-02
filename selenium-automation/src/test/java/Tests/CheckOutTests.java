@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-public class LoginTest extends BaseTest {
+public class CheckOutTests extends BaseTest {
 
     @BeforeMethod
     public void pageSetUp() {

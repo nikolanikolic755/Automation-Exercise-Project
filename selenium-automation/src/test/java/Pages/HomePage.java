@@ -1,7 +1,9 @@
 package Pages;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 
 public class HomePage {
@@ -12,4 +14,15 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
+
+    public WebElement getViewProductBlueTop() {
+        return driver.findElement(By.cssSelector("a[href='/product_details/1']"));
+    }
+
+    //---------------------------------------------------------"a[href=']"
+
+    public void clickViewProductBlueTop(){
+        getViewProductBlueTop().click();
+    }
 }
+

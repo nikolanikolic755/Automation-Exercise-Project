@@ -5,6 +5,7 @@ import Pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -32,21 +33,36 @@ public class CartTest extends BaseTest {
         navigationMenu= new NavigationMenu(driver);
     }
 
-    @Test
-    public void test1() throws InterruptedException {
-        Thread.sleep(5000);
+    @Test(priority = 1)
+    public void verifyUserCanAddMultipleItemsToCart(){
+
         navigationMenu.clickProducts();
-        Thread.sleep(5000);
-        navigationMenu.clickHome();
-        Thread.sleep(5000);
+        productsPage.clikAddBlueTopToCart();
+        productsPage.clickContinueShopping();
+        productsPage.clickAddManTshirtToCart();
+        productsPage.clickContinueShopping();
+
+
+        Assert.assertEquals(driver.getCurrentUrl(),cartPage.cartURL());
+        Assert.assertTrue(cartPage.getBlueTopItem().isDisplayed());
+        Assert.assertTrue(cartPage.getMenTshirtItem().isDisplayed());
+    }
+        @Test(priority = 2)
+                public void verifyUserCanRemoveItemFromCart(){
+
+        }
+
+
+    @Test(priority = 3)
+    public void verifyProductRemainInCartAfterPageRefresh(){
+        navigationMenu.clickProducts();
+        productsPage.clikAddBlueTopToCart();
+        productsPage.clickContinueShopping();
         navigationMenu.clickCart();
-        Thread.sleep(5000);
-        navigationMenu.clickLoginSignup();
-        Thread.sleep(5000);
-        navigationMenu.clickContactUs();
-
-
-
+        Assert.assertEquals(driver.getCurrentUrl(),cartPage.cartURL());
+        Assert.assertTrue(cartPage.getBlueTopItem().isDisplayed());
+        driver.navigate().refresh();
+        Assert.assertTrue(cartPage.getBlueTopItem().isDisplayed());
     }
 
 }

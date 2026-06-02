@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-public class LoginPage  {
+public class LoginPage {
 
     WebDriver driver;
     WebElement loginEmailField;
@@ -29,7 +29,7 @@ public class LoginPage  {
     }
 
     public WebElement getLoginButton() {
-        return driver.findElement(By.cssSelector("input[data-qa='login-button']"));
+        return driver.findElement(By.cssSelector("button[data-qa='login-button']"));
     }
 
     public WebElement getSignupNameField() {
@@ -41,37 +41,53 @@ public class LoginPage  {
     }
 
     public WebElement getSignupButton() {
-        return driver.findElement(By.cssSelector("input[data-qa='signup-button']"));
+        return driver.findElement(By.cssSelector("button[data-qa='signup-button']"));
     }
 
-    //--------------------------------
-
-    public void inputLoginEmail() {
-       getLoginEmailField().clear();
-        getLoginEmailField().sendKeys("asdsa");
+    public WebElement getEmailExists() {
+        return driver.findElement(By.xpath("/html/body/section/div/div/div[3]/div/form/p"));
     }
 
-    public void inputLoginPassword() {
-       getLoginPasswordField().clear();
-        getLoginPasswordField().sendKeys("asdsa");
+    //-------------------------------------------------------------------------------------------------------
+
+    public void inputLoginEmail(String email) {
+        getLoginEmailField().clear();
+        getLoginEmailField().sendKeys(email);
+    }
+
+    public void inputLoginPassword(String password) {
+        getLoginPasswordField().clear();
+        getLoginPasswordField().sendKeys(password);
     }
 
     public void clickLoginButton() {
         getLoginButton().click();
     }
 
-    public void inputSignupName() {
+    public void inputSignupName(String name) {
         getSignupNameField().clear();
-       getSignupNameField().sendKeys("asfdfas");
+        getSignupNameField().sendKeys(name);
     }
 
-    public void inputSignupEmail() {
+    public void inputSignupEmail(String email) {
         getSignupEmailField().clear();
-       getSignupEmailField().sendKeys("asfdfas");
+        getSignupEmailField().sendKeys(email);
     }
-    public void clickSignupButton(){
+
+    public void clickSignupButton() {
 
         getSignupButton().click();
+    }
+
+    public String expectedURL() {
+        return "https://automationexercise.com/login";
+
+
+    }
+
+    public String emailAlreadyExistsMessage() {
+        return getEmailExists().getText();
+
     }
 
 

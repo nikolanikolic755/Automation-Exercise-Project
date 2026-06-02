@@ -37,9 +37,14 @@ public class NavigationMenu {
         return driver.findElement(By.cssSelector("a[href='/login']"));
     }
 
+    public WebElement getLogout() {
+        return driver.findElement(By.cssSelector("a[href='/logout']"));
+    }
+
     public WebElement getContactUs() {
         return driver.findElement(By.cssSelector("a[href='/contact_us']"));
     }
+
 
     //--------------------------------------------------
 
@@ -59,7 +64,12 @@ public class NavigationMenu {
         getLoginSignup().click();
     }
 
+    public void clickLogout() {
+        getLogout().click();
+    }
+
     public void clickContactUs() {
         getContactUs().click();
     }
+
 }
