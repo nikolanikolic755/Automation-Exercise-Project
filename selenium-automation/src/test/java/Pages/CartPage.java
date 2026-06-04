@@ -13,14 +13,45 @@ public class CartPage {
         this.driver = driver;
     }
 
-    public WebElement getBlueTopItem(){
+    // Returns the remove button for an item in the cart
+    public WebElement getRemoveItemButton() {
+        return driver.findElement(By.className("cart_quantity_delete"));
+    }
+
+    // Returns the remove button for an item in the cart
+    public WebElement getBlueTopItem() {
         return driver.findElement(By.linkText("Blue Top"));
     }
-    public WebElement getMenTshirtItem(){
+
+    // Returns the remove button for an item in the cart
+    public WebElement getMenTshirtItem() {
         return driver.findElement(By.linkText("Men Tshirt"));
     }
-    //---------------------------------
-    public String cartURL(){
+
+    // Returns the message displayed when the cart is empty
+    public WebElement getCartIsEmptyMessage() {
+        return driver.findElement(By.xpath("/html/body/section/div/div[2]/span/p/b"));
+    }
+
+    // Returns the checkout button
+    public WebElement getProceedToCheckoutButton() {
+        return driver.findElement(By.linkText("Proceed To Checkout"));
+    }
+
+    //---------------------------------------------------------------------
+
+    // Returns the cart page URL
+    public String cartURL() {
         return "https://automationexercise.com/view_cart";
+    }
+
+    // Clicks the remove button for an item in the cart
+    public void removeItem() {
+        getRemoveItemButton().click();
+    }
+
+    // Clicks the Proceed To Checkout button
+    public void clickProceedToCheckout() {
+        getProceedToCheckoutButton().click();
     }
 }
